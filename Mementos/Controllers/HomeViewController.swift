@@ -14,10 +14,6 @@ import FirebaseDatabase
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate{
 
 
-    
-
-    
-    
     @IBOutlet weak var btnplus: RoundedButton!
     @IBOutlet weak var celltext: UILabel!
     @IBOutlet weak var lblDate: UILabel!

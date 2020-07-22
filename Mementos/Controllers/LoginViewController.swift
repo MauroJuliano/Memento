@@ -32,9 +32,7 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func Btnregist(_ sender: Any) {
-        
-        
-        
+
     }
     @IBAction func btnLogin(_ sender: Any) {
         

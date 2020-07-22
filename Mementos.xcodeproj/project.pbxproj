@@ -158,34 +158,19 @@
 		4C3C203924AE483800985440 /* Mementos */ = {
 			isa = PBXGroup;
 			children = (
+				4CC23C2A24C896A400C80D2F /* popups */,
+				4CC23C2924C8962700C80D2F /* Extensions */,
+				4CC23C2824C8961E00C80D2F /* Controllers */,
+				4CC23C2724C8961500C80D2F /* Cell */,
 				4CA05B6224C766A70098C4A2 /* Settings */,
 				4C7998D524AF888600530BF0 /* GoogleService-Info.plist */,
 				4C3C203A24AE483800985440 /* AppDelegate.swift */,
 				4C48FF0524AFA9C800399E1A /* Firebase.swift */,
-				4CCB802424BD59E00006F7F2 /* contentViewController.swift */,
-				4C95111C24AE95E60019562E /* registerViewController.swift */,
-				4C3C206E24AE508300985440 /* RoundedButton.swift */,
-				4C3C207024AE50AD00985440 /* RoundedView.swift */,
-				4C3C206C24AE4E9200985440 /* HomeViewController.swift */,
-				4CD1862824C216FC00CE9B3C /* ItensCollectionCell.swift */,
-				4C3C206A24AE48FB00985440 /* LoginViewController.swift */,
 				4C3C203C24AE483800985440 /* SceneDelegate.swift */,
-				4C3C203E24AE483800985440 /* ViewController.swift */,
 				4C3C204024AE483800985440 /* Main.storyboard */,
-				4CA05B6024C73F790098C4A2 /* SettingsViewController.swift */,
-				4CD1862624C1FCA500CE9B3C /* CardCollectionCell.swift */,
-				4C17644324BC98BD00BF5A2B /* ListViewController.swift */,
 				4C3C204324AE483A00985440 /* Assets.xcassets */,
 				4C3C204524AE483A00985440 /* LaunchScreen.storyboard */,
 				4C3C204824AE483A00985440 /* Info.plist */,
-				4C3C207224AE596B00985440 /* Tabbarcontroller.swift */,
-				4C3C207624AE5DB200985440 /* Newtask.swift */,
-				4CA1FF9C24AE9F2400BD75A3 /* CalendarViewController.swift */,
-				4C07DFA724B2B79500A7419A /* warninglogin.swift */,
-				4C1BFBC424B3ACE300C885CF /* edittextfield.swift */,
-				4C1BFBC624B3CACA00C885CF /* Listcellcontroller.swift */,
-				4C168EE224B3D91E00C06240 /* Tablelistcontroller.swift */,
-				4CF22AF124B40F4200CEC615 /* List.swift */,
 			);
 			path = Mementos;
 			sourceTree = "<group>";
@@ -215,6 +200,53 @@
 				4CA05B6524C772030098C4A2 /* SpinnerViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		4CC23C2724C8961500C80D2F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4CD1862824C216FC00CE9B3C /* ItensCollectionCell.swift */,
+				4CD1862624C1FCA500CE9B3C /* CardCollectionCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4CC23C2824C8961E00C80D2F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C95111C24AE95E60019562E /* registerViewController.swift */,
+				4C3C206C24AE4E9200985440 /* HomeViewController.swift */,
+				4C3C206A24AE48FB00985440 /* LoginViewController.swift */,
+				4C3C203E24AE483800985440 /* ViewController.swift */,
+				4CA05B6024C73F790098C4A2 /* SettingsViewController.swift */,
+				4C17644324BC98BD00BF5A2B /* ListViewController.swift */,
+				4C3C207224AE596B00985440 /* Tabbarcontroller.swift */,
+				4CA1FF9C24AE9F2400BD75A3 /* CalendarViewController.swift */,
+				4C168EE224B3D91E00C06240 /* Tablelistcontroller.swift */,
+				4C1BFBC624B3CACA00C885CF /* Listcellcontroller.swift */,
+				4C3C207624AE5DB200985440 /* Newtask.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4CC23C2924C8962700C80D2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C3C206E24AE508300985440 /* RoundedButton.swift */,
+				4C3C207024AE50AD00985440 /* RoundedView.swift */,
+				4C1BFBC424B3ACE300C885CF /* edittextfield.swift */,
+				4CF22AF124B40F4200CEC615 /* List.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4CC23C2A24C896A400C80D2F /* popups */ = {
+			isa = PBXGroup;
+			children = (
+				4C07DFA724B2B79500A7419A /* warninglogin.swift */,
+				4CCB802424BD59E00006F7F2 /* contentViewController.swift */,
+			);
+			path = popups;
 			sourceTree = "<group>";
 		};
 		8B61987D1C34308D5245C669 /* Pods */ = {

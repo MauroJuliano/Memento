@@ -26,10 +26,11 @@ class contentViewController: UIViewController{
     var keyArray:[String] = []
     
     override func viewDidLoad() {
+        // pop up to new task
         getAllKeys()
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-               popContent.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
+        popContent.backgroundColor = UIColor.white
     }
    
     func getAllKeys(){

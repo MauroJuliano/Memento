@@ -11,6 +11,7 @@ import UIKit
 
 class popviewcontroller: UIViewController {
     
+    //Pop up to say the user have some issue in password or email
     
     @IBOutlet weak var btnokay: RoundedButton!
     @IBOutlet weak var popwarning: UIView!
@@ -18,7 +19,7 @@ class popviewcontroller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        popwarning.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
+        popwarning.backgroundColor = UIColor.white
         
         
     }

@@ -32,7 +32,7 @@ class registerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func placholders(){
-        
+        //confirugation placeholders
         TxtNickname.attributedPlaceholder = NSAttributedString(string: "Name",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         TxtEmail.attributedPlaceholder = NSAttributedString(string: "Email",
@@ -43,7 +43,7 @@ class registerViewController: UIViewController {
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     @IBAction func BRegister(_ sender: Any) {
-        
+        // get data from textfield and save in databse
         let signUpManager = FirebaseAuthManager()
         if let email = TxtEmail.text, let nickname = TxtNickname.text, let password = TxtPassword.text {
             signUpManager.createUser(email: email, password: password) {[weak self] (success) in
@@ -81,6 +81,7 @@ class registerViewController: UIViewController {
         }
     }
     func registerList() {
+        //register one list when register new user
         self.ref = Database.database().reference()
                
                var usersreference = ref.child("users")
