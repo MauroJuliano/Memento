@@ -205,6 +205,7 @@
 		4CC23C2724C8961500C80D2F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4C1BFBC624B3CACA00C885CF /* Listcellcontroller.swift */,
 				4CD1862824C216FC00CE9B3C /* ItensCollectionCell.swift */,
 				4CD1862624C1FCA500CE9B3C /* CardCollectionCell.swift */,
 			);
@@ -223,7 +224,6 @@
 				4C3C207224AE596B00985440 /* Tabbarcontroller.swift */,
 				4CA1FF9C24AE9F2400BD75A3 /* CalendarViewController.swift */,
 				4C168EE224B3D91E00C06240 /* Tablelistcontroller.swift */,
-				4C1BFBC624B3CACA00C885CF /* Listcellcontroller.swift */,
 				4C3C207624AE5DB200985440 /* Newtask.swift */,
 			);
 			path = Controllers;

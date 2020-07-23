@@ -32,6 +32,8 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
     var CompletedData: [String] = []
     var selectedRow = ""
     var keyCompled: [String] = []
+    
+    var testeC: [String] = []
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -82,17 +84,17 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         .child("Listas")
         .child(Auth.auth().currentUser!.uid)
         .child(namelist)
-        .child("Itens")
+//        .child("Itens")
         .queryOrderedByKey()
         .observeSingleEvent(of: .value, with: { snapshot in
             self.ObjectsArray.removeAll()
             
             var myArray = [String]()
             for child in snapshot.children{
-                let snap = child as? DataSnapshot
-                let objects = snap?.value as! String
+            let snap = child as? DataSnapshot
+            let objects = snap?.value as! String
                 
-                myArray.append(objects)
+            myArray.append(objects)
             self.ObjectsArray.append(objects)
             
             }
@@ -118,17 +120,21 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
             for(_, value) in users{
                   
                    if let alert = value["Alerta"] {
-                       let userToshow = usersAlert()
-                       if let date = value["Date"] as? String, let hour = value["Hour"] as? String, let lista = value["Lista"] as? String, let Alert = value["Alerta"] as? String {
-                        
-                           userToshow.date = date
-                           userToshow.hour = hour
-                           userToshow.lista = lista
-                           userToshow.Alerta = Alert
-                           
-                        self.Alerta = userToshow.Alerta
-                           
-                       }
+                    let userToshow = usersAlert()
+
+                    let date = value["Date"] as? String
+                    let hour = value["Hour"] as? String
+                    let lista = value["Lista"] as? String
+                    let Alert = value["Alerta"] as? String
+                  
+                    
+                    userToshow.date = date
+                    userToshow.hour = hour
+                    userToshow.lista = lista
+                    userToshow.Alerta = Alert
+                    
+                    self.Alerta = userToshow.Alerta
+                    
                    }
                }
                
@@ -155,9 +161,9 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
                                         .child(Auth.auth().currentUser!.uid)
                                         .child(self.namelist)
                                         .child("Itens")
-                                            .child(self.keyArray[indexPath.row]).setValue(nil)
+                                        .child(self.keyArray[indexPath.row]).setValue(nil)
                                         
-                                        self.ObjectsArray.remove(at: indexPath.row)
+                                        //
                                         self.tableView.reloadData()
                                         self.keyArray = []
                         })
@@ -235,7 +241,6 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         .child("Listas")
         .child(Auth.auth().currentUser!.uid)
         .child(self.namelist)
-        .child("Itens")
         .child(self.keyArray[indexPath.row]).setValue(nil)
                                                     
         self.ObjectsArray.remove(at: indexPath.row)
@@ -270,7 +275,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+        print(self.ObjectsArray[indexPath.row])
     }
     @IBAction func btnAdd(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -366,6 +371,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if section == 0 {
         return self.ObjectsArray.count
         }
@@ -379,6 +385,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         cell.textLabel?.text = lista
         cell.textLabel?.text = "\(lista)"
         return cell
+        
     }
     
     
