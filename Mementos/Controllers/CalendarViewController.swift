@@ -115,11 +115,11 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, UITableViewD
                                         .child("users")
                                         .child("Listas")
                                         .child(Auth.auth().currentUser!.uid)
-                                            .child(self.list[indexPath.row].Lista).removeValue()
+                                        .child(self.list[indexPath.row].Lista).removeValue()
 //                                        
-//                                        self.list.remove(at: indexPath.row)
-//                                        self.TableView.reloadData()
-//                                        self.keyArray = []
+                                        self.list.remove(at: indexPath.row)
+                                        self.TableView.reloadData()
+                                        self.keyArray = []
 //                                        
 
                         })

@@ -84,7 +84,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         .child("Listas")
         .child(Auth.auth().currentUser!.uid)
         .child(namelist)
-//        .child("Itens")
+        .child("Itens")
         .queryOrderedByKey()
         .observeSingleEvent(of: .value, with: { snapshot in
             self.ObjectsArray.removeAll()
@@ -190,9 +190,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
         let action = UIContextualAction(style: .destructive, title: "Completed") {(complete, view, completion) in
 
             self.completeString = self.completeds[indexPath.row]
-            //       self.complete = [self.completeString]
             self.ObjectsArray.append(self.completeString)
-//                   _ = self.complete.joined(separator: ", ")
             self.completeItens()
             self.recoveryData(at: indexPath)
                    completion(true)

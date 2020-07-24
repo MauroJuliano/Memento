@@ -766,7 +766,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" reuseIdentifier="CellView" translatesAutoresizingMaskIntoConstraints="NO" id="gBi-LO-gVJ" customClass="CardCollectionCell" customModule="Mementos" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" reuseIdentifier="CellView" translatesAutoresizingMaskIntoConstraints="NO" id="gBi-LO-gVJ" customClass="CardCollectionCell" customModule="Mementos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2" width="398" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="A6g-B8-Qja">
@@ -826,7 +826,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Cell2" translatesAutoresizingMaskIntoConstraints="NO" id="Vpd-1x-qjC" customClass="ItensCollectionCell" customModule="Mementos" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="Cell2" translatesAutoresizingMaskIntoConstraints="NO" id="Vpd-1x-qjC" customClass="ItensCollectionCell" customModule="Mementos" customModuleProvider="target">
                                         <rect key="frame" x="21.5" y="0.0" width="356" height="87"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="BYT-2t-t6m">
