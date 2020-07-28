@@ -187,7 +187,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBAction func btnNew(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle:  nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NewTask") as! Newtask
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewHome") as! TaskhomeViewController
         self.present(vc, animated: true, completion: nil)
     }
     

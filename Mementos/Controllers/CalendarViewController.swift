@@ -49,6 +49,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, UITableViewD
         self.TableView.reloadData()
       }
    
+    @IBAction func btnNewtask(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle:  nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NewTask") as! Newtask
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func LoadList(){
         let uid = Auth.auth().currentUser?.uid
         self.ref = Database.database().reference().child("users").child("Listas").child(uid!)

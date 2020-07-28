@@ -16,7 +16,7 @@
 		4C3C203D24AE483800985440 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C203C24AE483800985440 /* SceneDelegate.swift */; };
 		4C3C203F24AE483800985440 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C203E24AE483800985440 /* ViewController.swift */; };
 		4C3C204224AE483800985440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C204024AE483800985440 /* Main.storyboard */; };
-		4C3C204424AE483A00985440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C204324AE483A00985440 /* Assets.xcassets */; };
+		4C3C204424AE483A00985440 /* memento.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C204324AE483A00985440 /* memento.xcassets */; };
 		4C3C204724AE483A00985440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C204524AE483A00985440 /* LaunchScreen.storyboard */; };
 		4C3C205224AE483A00985440 /* MementosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C205124AE483A00985440 /* MementosTests.swift */; };
 		4C3C205D24AE483A00985440 /* MementosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C205C24AE483A00985440 /* MementosUITests.swift */; };
@@ -27,6 +27,8 @@
 		4C3C207324AE596B00985440 /* Tabbarcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C207224AE596B00985440 /* Tabbarcontroller.swift */; };
 		4C3C207724AE5DB200985440 /* Newtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C207624AE5DB200985440 /* Newtask.swift */; };
 		4C48FF0624AFA9C800399E1A /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48FF0524AFA9C800399E1A /* Firebase.swift */; };
+		4C64168B24D07DC100B323F5 /* TaskhomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64168A24D07DC100B323F5 /* TaskhomeViewController.swift */; };
+		4C64168F24D0857B00B323F5 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C64168E24D0857B00B323F5 /* HomeTableViewCell.swift */; };
 		4C7998D624AF888600530BF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C7998D524AF888600530BF0 /* GoogleService-Info.plist */; };
 		4C95111D24AE95E60019562E /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95111C24AE95E60019562E /* registerViewController.swift */; };
 		4CA05B6124C73F790098C4A2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA05B6024C73F790098C4A2 /* SettingsViewController.swift */; };
@@ -68,7 +70,7 @@
 		4C3C203C24AE483800985440 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4C3C203E24AE483800985440 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C3C204124AE483800985440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4C3C204324AE483A00985440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C3C204324AE483A00985440 /* memento.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = memento.xcassets; sourceTree = "<group>"; };
 		4C3C204624AE483A00985440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C3C204824AE483A00985440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3C204D24AE483A00985440 /* MementosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MementosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,8 @@
 		4C3C207224AE596B00985440 /* Tabbarcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbarcontroller.swift; sourceTree = "<group>"; };
 		4C3C207624AE5DB200985440 /* Newtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Newtask.swift; sourceTree = "<group>"; };
 		4C48FF0524AFA9C800399E1A /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		4C64168A24D07DC100B323F5 /* TaskhomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskhomeViewController.swift; sourceTree = "<group>"; };
+		4C64168E24D0857B00B323F5 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		4C7998D524AF888600530BF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C95111C24AE95E60019562E /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
 		4CA05B6024C73F790098C4A2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +172,7 @@
 				4C48FF0524AFA9C800399E1A /* Firebase.swift */,
 				4C3C203C24AE483800985440 /* SceneDelegate.swift */,
 				4C3C204024AE483800985440 /* Main.storyboard */,
-				4C3C204324AE483A00985440 /* Assets.xcassets */,
+				4C3C204324AE483A00985440 /* memento.xcassets */,
 				4C3C204524AE483A00985440 /* LaunchScreen.storyboard */,
 				4C3C204824AE483A00985440 /* Info.plist */,
 			);
@@ -208,6 +212,7 @@
 				4C1BFBC624B3CACA00C885CF /* Listcellcontroller.swift */,
 				4CD1862824C216FC00CE9B3C /* ItensCollectionCell.swift */,
 				4CD1862624C1FCA500CE9B3C /* CardCollectionCell.swift */,
+				4C64168E24D0857B00B323F5 /* HomeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				4C95111C24AE95E60019562E /* registerViewController.swift */,
+				4C64168A24D07DC100B323F5 /* TaskhomeViewController.swift */,
 				4C3C206C24AE4E9200985440 /* HomeViewController.swift */,
 				4C3C206A24AE48FB00985440 /* LoginViewController.swift */,
 				4C3C203E24AE483800985440 /* ViewController.swift */,
@@ -366,7 +372,7 @@
 			files = (
 				4C3C204724AE483A00985440 /* LaunchScreen.storyboard in Resources */,
 				4C7998D624AF888600530BF0 /* GoogleService-Info.plist in Resources */,
-				4C3C204424AE483A00985440 /* Assets.xcassets in Resources */,
+				4C3C204424AE483A00985440 /* memento.xcassets in Resources */,
 				4C3C204224AE483800985440 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +442,7 @@
 			files = (
 				4CCB802524BD59E00006F7F2 /* contentViewController.swift in Sources */,
 				4C3C206D24AE4E9200985440 /* HomeViewController.swift in Sources */,
+				4C64168F24D0857B00B323F5 /* HomeTableViewCell.swift in Sources */,
 				4C3C207324AE596B00985440 /* Tabbarcontroller.swift in Sources */,
 				4C3C206F24AE508300985440 /* RoundedButton.swift in Sources */,
 				4CA05B6624C772030098C4A2 /* SpinnerViewController.swift in Sources */,
@@ -452,6 +459,7 @@
 				4C3C206B24AE48FB00985440 /* LoginViewController.swift in Sources */,
 				4CD1862724C1FCA500CE9B3C /* CardCollectionCell.swift in Sources */,
 				4C3C203F24AE483800985440 /* ViewController.swift in Sources */,
+				4C64168B24D07DC100B323F5 /* TaskhomeViewController.swift in Sources */,
 				4C168EE324B3D91E00C06240 /* Tablelistcontroller.swift in Sources */,
 				4C17644424BC98BD00BF5A2B /* ListViewController.swift in Sources */,
 				4C3C203B24AE483800985440 /* AppDelegate.swift in Sources */,
