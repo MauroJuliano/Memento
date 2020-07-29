@@ -23,7 +23,8 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
        @IBOutlet weak var Btnpin: RoundedButton!
     
         var itens = [String]()
-    
+        var sectionItens = [String]()
+        var arrayLista: [String] = []
         var ref: DatabaseReference!
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +47,10 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
          TxtType.attributedPlaceholder = NSAttributedString(string: "Itens",
          attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
      }
-        
+    
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                return itens.count
-           }
+    }
            
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                let cell = tableView.dequeueReusableCell(withIdentifier: "CellView", for: indexPath) as! HomeTableViewCell
@@ -57,11 +58,13 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
                cell.backgroundColor = UIColor.clear
                let joined = itens.joined(separator: ", ")
                return cell
-           }
+    }
+    
         func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
                   let delete = deleteAction(at: indexPath)
                   return UISwipeActionsConfiguration(actions: [delete])
               }
+    
         func deleteAction(at indexPath: IndexPath) -> UIContextualAction{
                   
                   let action = UIContextualAction(style: .destructive, title: "Delete") {(action, view, completion) in
@@ -79,36 +82,83 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
               }
     
         @IBAction func Btnpin(_ sender: Any) {
-
-            self.ref = Database.database().reference()
-            let uid = Auth.auth().currentUser!.uid
-            let usersReference = self.ref.child("users").child("Listas")
-                 print(usersReference.description())
-
-            let type = self.titleof.text!
-            let nameitens = self.txtNameItem.text!
             
-            let itenReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("\(nameitens)")
-            
-            itenReference.setValue(["Hour": self.TxtHour.text!,"\(nameitens)": self.TxtType.text!])
-                    itens.append(self.TxtType.text!)
-                    let joined = itens.joined(separator: ", ")
-                    TxtType.clearButtonMode = .whileEditing
-                    self.tableView.reloadData()
+            registerDate()
+            registerListaitens()
         }
     
+    func registerLista(){
+                   self.ref = Database.database().reference()
+                   let uid = Auth.auth().currentUser!.uid
+                   let usersReference = self.ref.child("users").child("Listas")
+                    
+
+                   let type = self.titleof.text!
+                   var LArray: [String] = []
+                    self.arrayLista.append(type)
+                   let nameitens = self.txtNameItem.text!
+                   self.sectionItens.append(self.txtNameItem.text!)
+                    print(type)
+                    print(self.arrayLista)
+                   let ListasReference = usersReference.child(uid).child("HomeList").child("Listas")
+        ListasReference.setValue(["Listas": self.arrayLista])
+
+                   itens.append(self.TxtType.text!)
+                   let joined = itens.joined(separator: ", ")
+                   TxtType.clearButtonMode = .whileEditing
+                   self.tableView.reloadData()
+    }
+    func registerDate(){
+        
+        self.ref = Database.database().reference()
+                  let uid = Auth.auth().currentUser!.uid
+                  let usersReference = self.ref.child("users").child("Listas")
+                       print(usersReference.description())
+        
+         let type = self.titleof.text!
+        
+        let dayReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("Date")
+                         dayReference.setValue(["Date": self.TxtDate.text!])
+    }
+    
+    func registerListaitens(){
+        self.ref = Database.database().reference()
+        let uid = Auth.auth().currentUser!.uid
+        let usersReference = self.ref.child("users").child("Listas")
+             print(usersReference.description())
+
+        let type = self.titleof.text!
+        var LArray: [String] = []
+        LArray.append(type)
+        let nameitens = self.txtNameItem.text!
+        self.sectionItens.append(self.txtNameItem.text!)
+        
+        let itenReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("Listas").child("\(nameitens)")
+
+                  itenReference.setValue(["Hour": self.TxtHour.text!,"\(nameitens)": self.TxtType.text!])
+
+        itens.append(self.TxtType.text!)
+        let joined = itens.joined(separator: ", ")
+        TxtType.clearButtonMode = .whileEditing
+        self.tableView.reloadData()
+    }
+    
         @IBAction func Bsave(_ sender: Any) {
-//            self.ref = Database.database().reference()
-//            let uid = Auth.auth().currentUser!.uid
-//            let usersReference = self.ref.child("users").child("Listas")
-//                 print(usersReference.description())
-//
-//            let type = self.titleof.text!
-//            let nameitens = self.txtNameItem.text!
-//
-//            let itenReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("\(nameitens)")
-//
-//            itenReference.setValue(["Hour": self.TxtHour.text!,"\(nameitens)": self.TxtType.text!])
+                     self.ref = Database.database().reference()
+                      let uid = Auth.auth().currentUser!.uid
+                      let usersReference = self.ref.child("users").child("Listas")
+                           print(usersReference.description())
+
+                      let type = self.titleof.text!
+                      let nameitens = self.txtNameItem.text!
+
+                      let itenReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("section")
+
+            itenReference.setValue(["sections": self.sectionItens])
+            registerLista()
+                  
+          
+            
             self.dismiss(animated: true, completion: nil)
         
         }

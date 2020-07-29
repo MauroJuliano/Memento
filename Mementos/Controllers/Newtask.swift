@@ -97,8 +97,10 @@ class Newtask: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         
         let type = self.titleof.text!
+        
         let newReference = usersReference.child(uid).child("\(type)")
         newReference.setValue(["Hour": self.TxtHour.text!, "Date": self.TxtDate.text!, "Itens": self.itens, "Lista": self.titleof.text!, "userid": uid])
+        
         if self.tag != ""{
             newReference.setValue(["Hour": self.TxtHour.text!, "Date": self.TxtDate.text!, "Itens": self.itens, "Lista": self.titleof.text!, "userid": uid, "Alerta":self.tag])
         }

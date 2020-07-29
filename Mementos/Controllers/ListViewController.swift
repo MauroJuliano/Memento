@@ -118,7 +118,7 @@ class listviewcontroller: UIViewController, UITableViewDelegate, UITableViewData
             let users = snapshot.value as! [String: AnyObject]
               
             for(_, value) in users{
-                  
+                
                    if let alert = value["Alerta"] {
                     let userToshow = usersAlert()
 

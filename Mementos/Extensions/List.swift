@@ -52,3 +52,13 @@ var email: String!
 var name: String!
 var userID: String!
 }
+
+class dataS: NSObject{
+    var date: String!
+    var name: String!
+}
+
+class infos: NSObject{
+    var info: String!
+    var hour: String!
+}
