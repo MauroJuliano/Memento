@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FSCalendar
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -21,63 +21,131 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionSchedule: UICollectionView!
     @IBOutlet weak var lblDatefull: UILabel!
     
+    @IBOutlet weak var viewbtn: extensions!
+    @IBOutlet weak var btndate: RoundedButton!
     var ref = DatabaseReference()
     var lista = [usersAlert]()
     var Lists = [dataS]()
     var infouser = [infos]()
-    
+    var dayz = [day]()
     var namelist = ""
     var nameTeste = ""
-    
+    @IBOutlet weak var today: UILabel!
+    var dataToday = ""
     var ListName: [String] = []
     var sectionList: [String] = []
     var objectsArray = [infos]()
     var itens: [String] = []
-    
+    var teste = ""
     var sectionLists = ""
     var datedatabase = ""
     var namesection = ""
+    
     @IBOutlet weak var viewDay: extensions!
     override func viewDidLoad() {
        
-        viewDay.backgroundColor = UIColor(patternImage: UIImage(named: "bluehori.jpg")!)
+
         btnplus.backgroundColor = UIColor(patternImage: UIImage(named:"plus.png")!)
+        viewbtn.backgroundColor = UIColor(patternImage: UIImage(named:"bluehori.jpg")!)
         super.viewDidLoad()
         Collection.delegate = self
         Collection.dataSource = self
         collectionSchedule.delegate = self
         collectionSchedule.dataSource = self
-        
+
         date()
-       
+        
         self.view.addSubview(Collection)
         
     }
+
     
     func date(){
         //get and set data/hour
        let currentDateTime = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        let formatter : DateFormatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        
+        let mmString : DateFormatter = DateFormatter()
+        mmString.dateFormat = "MM"
+        
         self.lblDatefull.text = formatter.string(from: currentDateTime)
         
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
         
-        self.lblDate.text = dateFormatter.string(from: currentDateTime)
+       
+        self.today.text = dateFormatter.string(from: currentDateTime)
+        
+        var month = mmString.string(from: currentDateTime)
+        var day = dateFormatter.string(from: currentDateTime)
+        var weekday = formatter.string(from: currentDateTime)
+        var dayT = ""
+        self.dataToday = dateFormatter.string(from: currentDateTime)
+        
+        if month == "01" {
+            self.lblDatefull.text = weekday + ", " + "January" + " " + day
+            
+            self.dataToday = "January" + " " + day
+        } else if month == "02" {
+            
+            self.lblDatefull.text = weekday + ", " + "February" + " " + day
+            self.dataToday = "February" + " " + day
+        } else if month == "03" {
+            
+            self.lblDatefull.text = weekday + ", " + "March" + " " + day
+            self.dataToday = "March" + " " + day
+        } else if month == "04" {
+            
+            self.lblDatefull.text = weekday + ", " + "April" + " " + day
+            self.dataToday = "April" + " " + day
+        } else if month == "05" {
+            
+            self.lblDatefull.text = weekday + ", " + "May" + " " + day
+            self.dataToday = "May" + " " + day
+        } else if month == "06" {
+            
+            self.lblDatefull.text = weekday + ", " + "June" + " " + day
+            self.dataToday = "June" + " " + day
+        } else if month == "07" {
+            
+            self.lblDatefull.text = weekday + ", " + "July" + " " + day
+            self.dataToday = "July" + " " + day
+        } else if month == "08" {
+            
+            self.lblDatefull.text = weekday + ", " + "August" + " " + day
+            self.dataToday = "August" + " " + day
+        } else if month == "09" {
+            
+            self.lblDatefull.text = weekday + ", " + "Semptember" + " " + day
+            self.dataToday = "Semptember" + " " + day
+        } else if month == "10" {
+            
+            self.lblDatefull.text = weekday + ", " + "October" + " " + day
+            self.dataToday = "October" + " " + day
+        } else if month == "11" {
+            
+            self.lblDatefull.text = weekday + ", " + "November" + " " + day
+            self.dataToday = "November" + " " + day
+        } else if month == "12" {
+            
+            self.lblDatefull.text = weekday + ", " + "December" + " " + day
+            self.dataToday = "December" + " " + day
+        }
+        
 }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         let indexPath = IndexPath(row: 0, section: 0)
         Collection.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-        
         remove()
         
     }
     
     func remove(){
         self.sectionLists.removeAll()
+        self.sectionList.removeAll()
         self.namesection.removeAll()
         self.nameTeste.removeAll()
         self.ListName.removeAll()
@@ -87,7 +155,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     func loadData(){
         //get name list inside database
-        
+        let data = self.dataToday
         Database
         .database()
         .reference()
@@ -96,28 +164,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         .child(Auth.auth().currentUser!.uid)
         .child("HomeList")
         .child("Listas")
+        .child(data)
         .child("Listas")
         .queryOrderedByKey()
         .observeSingleEvent(of: .value, with: { snapshot in
-         
+
             var myArray = [String]()
             for child in snapshot.children{
-          
+
             let snap = child as! DataSnapshot
             let objects = snap.value as! String
-            
-            
+
             self.nameTeste = objects
             self.ListName.append(objects)
+                print(self.nameTeste)
             }
-            self.Collection.reloadData()
-//            self.loadSections()
+            self.loadSections()
         })
-        
     }
+
         func loadSections(){
          //get array list inside de main list
          self.namesection.removeAll()
+            
           Database
          .database()
          .reference()
@@ -144,9 +213,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.namesection = objects
             
             }
-            self.loadItensTest2()
             self.loadDate()
-            
+            self.loadItensTest2()
          })
             
      }
@@ -173,8 +241,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             var datedb = users["Date"] as! String
             
             self.datedatabase = datedb
-            print(datedb)
-                
             })
         }
     
@@ -188,17 +254,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let users = snapshot.value as! [String: AnyObject]
             
             for(_, value) in users{
+                print(self.dataToday)
+                print("data today")
+                if let day = value["Day"] as? String {
+    
+                if day == self.dataToday {
+                    
                  let userToshow = infos()
                  let info = value["info"] as? String
                  let hour = value["Hour"] as? String
-                
+               
                     userToshow.info = info
                     userToshow.hour = hour
-                    
+                   
                    self.infouser.append(userToshow)
-                print(self.infouser)
-                               
+                }
             }
+            }
+//            self.loadSections()
+            self.Collection.reloadData()
             self.collectionSchedule.reloadData()
         })
         
@@ -207,10 +281,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         for cell in Collection.visibleCells{
-            
+
             let indexPath = Collection.indexPath(for: cell)
-            self.sectionLists = self.sectionList[indexPath!.row]
+            self.nameTeste = self.ListName[indexPath!.row]
             remove()
+            
+            
         }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -218,6 +294,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
         return self.ListName.count
         }
+        print(self.infouser.count)
         return self.infouser.count
     }
  
@@ -242,15 +319,26 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let selectedCell = collectionView.cellForItem(at: indexPath)! as! ItensCollectionCell
+        if collectionView == Collection{
+             self.nameTeste.removeAll()
+                       let name = self.ListName[indexPath.row]
+                       self.nameTeste = name
+                       self.ListName.removeAll()
+                       self.loadSections()
+//            self.remove()
+        }
+        
+        if collectionView == collectionSchedule{
+                  print("Collection schedule")
+                           
+                        let selectedCell = collectionView.cellForItem(at: indexPath)! as! ItensCollectionCell
 
-        selectedCell.lblView.backgroundColor = UIColor(patternImage: UIImage(named: "bluehori.jpg")!)
-        selectedCell.lblHour.backgroundColor = UIColor(patternImage: UIImage(named: "bluehori.jpg")!)
+            
+            selectedCell.lblView.backgroundColor = UIColor(patternImage: UIImage(named: "bluehori.jpg")!)
+                        selectedCell.lblHour.backgroundColor = UIColor(patternImage: UIImage(named: "bluehori.jpg")!)
+            }
+       
 
-    }
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let selectedCell = collectionView.cellForItem(at: indexPath)! as! ItensCollectionCell
-        selectedCell.lblView.backgroundColor = UIColor.gray
     }
 
     

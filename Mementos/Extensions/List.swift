@@ -61,4 +61,10 @@ class dataS: NSObject{
 class infos: NSObject{
     var info: String!
     var hour: String!
+    var day: String!
+ 
+}
+
+class day: NSObject{
+    var name: String!
 }

@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var imageprofile: UIImageView!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var btnLog: RoundedButton!
     var dataSend = ""
     var userArray = [users2]()
     
@@ -21,6 +22,8 @@ class SettingsViewController: UIViewController {
         loadData()
         super.viewDidLoad()
         ImgProfile()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blue3.jpg")!)
+//        btnLog.backgroundColor = UIColor(patternImage: UIImage(named: "blue3.jpg")!)
         
         // Do any additional setup after loading the view.
     }

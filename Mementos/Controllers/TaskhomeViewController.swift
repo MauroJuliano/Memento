@@ -21,7 +21,7 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
 
        @IBOutlet weak var tableView: UITableView!
        @IBOutlet weak var Btnpin: RoundedButton!
-    
+        var day = ""
         var itens = [String]()
         var sectionItens = [String]()
         var arrayLista: [String] = []
@@ -93,14 +93,21 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
                    let usersReference = self.ref.child("users").child("Listas")
                     
 
-                   let type = self.titleof.text!
-                   var LArray: [String] = []
-                    self.arrayLista.append(type)
+                  
                    let nameitens = self.txtNameItem.text!
                    self.sectionItens.append(self.txtNameItem.text!)
-                    print(type)
-                    print(self.arrayLista)
-                   let ListasReference = usersReference.child(uid).child("HomeList").child("Listas")
+                    
+      
+        let dia = self.TxtDate.text!
+        if dia != self.day {
+            self.arrayLista.removeAll()
+        }
+        
+        let type = self.titleof.text!
+        var LArray: [String] = []
+        self.arrayLista.append(type)
+        
+        let ListasReference = usersReference.child(uid).child("HomeList").child("Listas").child(dia)
         ListasReference.setValue(["Listas": self.arrayLista])
 
                    itens.append(self.TxtType.text!)
@@ -135,7 +142,7 @@ class TaskhomeViewController: UIViewController, UITableViewDelegate, UITableView
         
         let itenReference = usersReference.child(uid).child("HomeList").child("\(type)").child("Itens").child("itens").child("Listas").child("\(nameitens)")
 
-                  itenReference.setValue(["Hour": self.TxtHour.text!,"\(nameitens)": self.TxtType.text!])
+        itenReference.setValue(["Hour": self.TxtHour.text!,"info": self.TxtType.text!, "Day": self.TxtDate.text!])
 
         itens.append(self.TxtType.text!)
         let joined = itens.joined(separator: ", ")
