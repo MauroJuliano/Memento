@@ -19,25 +19,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnLogin: RoundedButton!
     
     override func viewDidLoad() {
-        
-        LogView.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
-        btnLogin.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
-        
         super.viewDidLoad()
-        
-        
+        setupUI()
         // Do any additional setup after loading the view.
     }
     
+    func setupUI(){
+        LogView.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
+        btnLogin.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
+    }
 
     
     @IBAction func Btnregist(_ sender: Any) {
 
     }
+    
     @IBAction func btnLogin(_ sender: Any) {
         
         Auth.auth().signIn(withEmail: self.Txtemail.text!, password: self.Txtpassword.text!) { [weak self] user, error in
-                 //guard let strongSelf = self else { return }
+                 guard let strongSelf = self else { return }
                  if error != nil{
                      print("me")
                      print(error!.localizedDescription)
@@ -46,8 +46,6 @@ class LoginViewController: UIViewController {
                     //poperror.modalPresentationStyle = .fullScreen
                     
                     self?.present(poperror, animated: true, completion: nil)
-                    
-                    
                      return
                  }
              let storyboard = UIStoryboard.init(name: "Main", bundle: nil)

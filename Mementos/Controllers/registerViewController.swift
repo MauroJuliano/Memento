@@ -23,16 +23,15 @@ class registerViewController: UIViewController {
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
-        
-        placholders()
-        
+        setupUI()
         super.viewDidLoad()
-        BRegister.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blue3.jpg")!)
         // Do any additional setup after loading the view.
     }
-    func placholders(){
-        //confirugation placeholders
+    
+    private func setupUI(){
+        BRegister.backgroundColor = UIColor(patternImage: UIImage(named: "blue.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blue3.jpg")!)
+        //setup placeholders
         TxtNickname.attributedPlaceholder = NSAttributedString(string: "Name",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         TxtEmail.attributedPlaceholder = NSAttributedString(string: "Email",
@@ -42,13 +41,12 @@ class registerViewController: UIViewController {
         TxtConfirm.attributedPlaceholder = NSAttributedString(string: "Confirm Password",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
+    
     @IBAction func BRegister(_ sender: Any) {
         // get data from textfield and save in databse
         let signUpManager = FirebaseAuthManager()
         if let email = TxtEmail.text, let nickname = TxtNickname.text, let password = TxtPassword.text {
             signUpManager.createUser(email: email, password: password) {[weak self] (success) in
-                
-                
                self?.ref = Database.database().reference()
                 let usersReference = self!.ref.child("users")
                 
@@ -56,7 +54,8 @@ class registerViewController: UIViewController {
                 if let uid = Auth.auth().currentUser?.uid {
                     
                 let newReference = usersReference.child(uid)
-                newReference.setValue(["Name": self?.TxtNickname.text!, "Email": self?.TxtEmail.text!, "UserID": uid])
+                guard let name = self?.TxtNickname.text, let email = self?.TxtEmail.text else {return}
+                newReference.setValue(["Name": name, "Email": email, "UserID": uid])
                 self!.registerList()
                 }
                 
@@ -80,6 +79,7 @@ class registerViewController: UIViewController {
             }
         }
     }
+    
     func registerList() {
         //register one list when register new user
         self.ref = Database.database().reference()
@@ -91,7 +91,12 @@ class registerViewController: UIViewController {
 
              let uid = Auth.auth().currentUser?.uid
         self.objectsArray = ["Welcome", "This is your first Lista"]
-        usersreference.setValue(["Itens": self.objectsArray, "Date": "27 July", "Hour": "12Am", "userid": uid!, "Lista": "My First List", "Alerta": "Alert"])
+        usersreference.setValue(["Itens": self.objectsArray,
+                                 "Date": "27 July",
+                                 "Hour": "12Am",
+                                 "userid": uid!,
+                                 "Lista": "My First List",
+                                 "Alerta": "Alert"])
              
     }
     

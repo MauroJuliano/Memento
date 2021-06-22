@@ -44,25 +44,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var viewDay: extensions!
     override func viewDidLoad() {
        
-
+        super.viewDidLoad()
+        setupUI()
+        date()
+        self.view.addSubview(Collection)
+    }
+    
+    private func setupUI(){
         btnplus.backgroundColor = UIColor(patternImage: UIImage(named:"plus.png")!)
         viewbtn.backgroundColor = UIColor(patternImage: UIImage(named:"bluehori.jpg")!)
-        super.viewDidLoad()
-        Collection.delegate = self
-        Collection.dataSource = self
-        collectionSchedule.delegate = self
-        collectionSchedule.dataSource = self
-
-        date()
         
-        self.view.addSubview(Collection)
-        
+//        Collection.delegate = self
+//        Collection.dataSource = self
+//        collectionSchedule.delegate = self
+//        collectionSchedule.dataSource = self
     }
-
     
-    func date(){
+    private func date(){
         //get and set data/hour
-       let currentDateTime = Date()
+        let currentDateTime = Date()
         let formatter : DateFormatter = DateFormatter()
         formatter.dateFormat = "EEEE"
         
@@ -73,8 +73,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
-        
-       
         self.today.text = dateFormatter.string(from: currentDateTime)
         
         var month = mmString.string(from: currentDateTime)
@@ -83,55 +81,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var dayT = ""
         self.dataToday = dateFormatter.string(from: currentDateTime)
         
-        if month == "01" {
-            self.lblDatefull.text = weekday + ", " + "January" + " " + day
-            
-            self.dataToday = "January" + " " + day
-        } else if month == "02" {
-            
-            self.lblDatefull.text = weekday + ", " + "February" + " " + day
-            self.dataToday = "February" + " " + day
-        } else if month == "03" {
-            
-            self.lblDatefull.text = weekday + ", " + "March" + " " + day
-            self.dataToday = "March" + " " + day
-        } else if month == "04" {
-            
-            self.lblDatefull.text = weekday + ", " + "April" + " " + day
-            self.dataToday = "April" + " " + day
-        } else if month == "05" {
-            
-            self.lblDatefull.text = weekday + ", " + "May" + " " + day
-            self.dataToday = "May" + " " + day
-        } else if month == "06" {
-            
-            self.lblDatefull.text = weekday + ", " + "June" + " " + day
-            self.dataToday = "June" + " " + day
-        } else if month == "07" {
-            
-            self.lblDatefull.text = weekday + ", " + "July" + " " + day
-            self.dataToday = "July" + " " + day
-        } else if month == "08" {
-            
-            self.lblDatefull.text = weekday + ", " + "August" + " " + day
-            self.dataToday = "August" + " " + day
-        } else if month == "09" {
-            
-            self.lblDatefull.text = weekday + ", " + "Semptember" + " " + day
-            self.dataToday = "Semptember" + " " + day
-        } else if month == "10" {
-            
-            self.lblDatefull.text = weekday + ", " + "October" + " " + day
-            self.dataToday = "October" + " " + day
-        } else if month == "11" {
-            
-            self.lblDatefull.text = weekday + ", " + "November" + " " + day
-            self.dataToday = "November" + " " + day
-        } else if month == "12" {
-            
-            self.lblDatefull.text = weekday + ", " + "December" + " " + day
-            self.dataToday = "December" + " " + day
-        }
+      var months = ["01": "January",
+                                "02": "February",
+                                "03": "March",
+                                "04": "April",
+                                "05": "May",
+                                "06":"June",
+                                "07": "July",
+                                "08": "August",
+                                "09": "September",
+                                "10": "Octuber",
+                                "11": "November",
+                                "12":"December"]
+              
+              if let monthSelected = months[month] {
+                  self.lblDatefull.text = weekday + ", " + monthSelected + " " + day
+                  self.dataToday = monthSelected + " " + day
+      }
         
 }
     
